@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" action="/recipes/update/{{recipe.id}}?_method=PUT" enctype="multipart/form-data" class="recipe-form">
+    
+    <label for="image">Загрузіть фото</label>
+    <div class="input-photo">
+    <input id="image" type="file" name="image" required>
+    </div>
+
+    <div class="input-name-recipe">
+    <input id="name" type="text" name="name" placeholder="Введіть назву рецепту" required>
+    </div>
+
+    <div class="input-describe">
+        <textarea id="describe" name="describe" rows="5" cols="33" placeholder="Напишіть опис та сам рецепт"></textarea>
+    </div>
+
+    <button type="submit" class="recipe-button">Змінити</button>
+    </form>
+</body>
+</html>

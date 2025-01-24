@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="profile-buttons">
+<a href="/user/logout" ><button class="exit">Вийти</button></a>
+<a href="/page/favourite"><button class="save">Збережені</button></a>
+<a href="/recipes/post"><button class="add">Додати рецепт</button></a>
+   </div>
+<h2>Ваші рецепти:</h2>
+<div class="recipe">
+{{#if recipes.length}}
+    <ul>
+        {{#each recipes}}
+            <li>
+                <img src="/{{this.image}}" alt="{{this.name}}" style="width: 150px;">
+                <h3>{{this.name}}</h3>
+                    <div class="elements">
+                    
+                    <a href='/recipes/check/{{this.id}}'><button class="watch-recipe">Переглянути</button></a>
+
+                    <a href='/recipes/update/{{this.id}}'><button  class="update-recipe">Змінити</button></a>
+
+                    <form method="POST" action="/recipes/delete/{{this.id}}?_method=DELETE">
+                    <button class="delete-recipe">Видалити</button>
+                    </form> 
+
+                    </div>
+            </li>
+        {{/each}}
+    </ul>
+{{else}}
+    <p>У вас немає створених рецептів.</p>
+{{/if}}
+</div>
+</body>
+</html>

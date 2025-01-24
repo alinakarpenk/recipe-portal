@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h2>Ваші збережені рецепти:</h2>
+<div class="recipe">
+{{#if favourite.length}}
+    <ul>
+        {{#each favourite}}
+            <li>
+                <img src="/{{this.Recipe.image}}" alt="{{this.name}}" style="width: 150px;">
+                <h3>{{this.Recipe.name}}</h3>
+                <p>Автор:{{this.User.name}}</p>
+                <a href='/recipes/check/{{this.id}}'><button class="watch-recipe">Переглянути</button></a>
+                 <form method="POST" action="/page/delete/{{this.id}}?_method=DELETE">
+                    <button class="delete-recipe">Видалити</button>
+                </form>
+            </li>
+        {{/each}}
+    </ul>
+{{else}}
+    <p>У вас немає збережених рецептів.</p>
+{{/if}}
+</div>
+</body>
+</html>

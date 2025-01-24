@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/layout/style.css">
+</head>
+<body>
+  <div class="recipe-one">
+    {{#if recipe}}
+        <ul>
+            <li>
+                {{#if recipe.image}}
+                    <img src="/{{recipe.image}}" width="200">
+                {{/if}}
+                <h3>{{recipe.name}}</h3>
+                <p class="recipe-description">{{recipe.describe}}</p>                
+                <p>Автор: {{recipe.User.name}}</p>
+            </li>
+        </ul>
+    {{else}}
+        <p>Рецепт не знайдено</p>
+    {{/if}}
+</div>
+</body>
+</html>

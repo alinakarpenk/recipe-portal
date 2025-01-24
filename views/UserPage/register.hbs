@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/js/main.js" defer></script>
+</head>
+<body>
+    <form method="POST" action="/user/register" onsubmit="onSubmit(event);" class="register">
+    <label for="name">Ім'я</label>
+    <div class="input-name">
+    <input id="name" type="text" name="name" required>
+    </div>
+
+    <label for="email">Електронна пошта</label>
+    <div class="input-email">
+    <input id="email" type="text" name="email" required>
+    </div>
+
+    <label for="password">Пароль</label>
+    <div class="input-pass">
+    <input id="password" type="password" name="password" required>
+    </div>
+
+    <label for="password2">Повторіть пароль</label>
+    <div class="input-pass2">
+    <input id="password2" type="password" name="password2" required>
+    </div>
+
+    <input type="submit" value="Зареєструватися" >
+
+    <h4 id="error"></h4>
+</form>
+
+</body>
+</html>

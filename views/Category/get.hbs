@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/layout/style.css">
+</head>
+<body>
+    <div class="recipe">
+    {{#if recipes}}
+        <ul>
+            {{#each recipes}}
+                <li>
+                    {{#if this.image}}
+                    <img src="/{{this.image}}" width="200">
+                {{/if}}
+                    <h3>{{this.name}}</h3>
+                    <a href='/recipes/check/{{this.id}}'><button class="watch-recipe">Переглянути</button></a>
+                    {{#if ../isAuthenticated}}
+                      {{#unless this.canEdit}}
+                      <form method="POST" action="/page/post/{{this.id}}">
+                        <button class="favourite-recipe">Save to Favourites</button>
+                     </form>
+                     {{/unless}}
+                     {{/if}}
+                    </li>
+            {{/each}}
+        </ul>
+    {{else}}
+        <p>Немає рецептів для відображення.</p>
+    {{/if}}
+</div>
+</body>
+</html>

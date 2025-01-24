@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>  
+</head>
+<body>
+  <header>
+  <nav>
+    <a href="/" class="main">Головна</a>
+       <div class="categories">
+        <select id="holiday-recipes" name="holiday-recipes" onchange="window.location.href='/category/view/' + this.value;">
+            <option value="">Святкові рецепти</option>
+            {{#each holidayCategories}}
+               <option value="{{this.id}}">{{this.name}}</option>
+            {{else}}
+                <option disabled>Немає святкових категорій</option>
+            {{/each}}
+        </select>
+   </div> 
+     <ul class="categories-list">
+        {{#each regularCategories}}
+          <li><a href="/category/view/{{this.id}}">{{this.name}}</a></li>
+        {{else}}
+          <p>Категорії не знайдено.</p>
+        {{/each}}
+      </ul>
+    <div class="search-container">
+      <form action="/recipes/search" method="GET">
+        <input type="search" id="site-search" name="query" placeholder="Search...">
+        <button type="submit" class="search-button">Search</button>
+      </form>
+    </div>
+
+    <a href="/user/profile" class="image">
+       <img src='/img/free-icon-account-1738691.png' class="user-img">
+    </a>
+  </nav>
+</header>
+</body>
+</html>

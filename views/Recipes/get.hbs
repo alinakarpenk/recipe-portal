@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/layout/style.css">
+</head>
+<body>
+    <div class="recipe">
+        {{#if recipe}}
+        <ul>
+            {{#each recipe}}
+            <li>
+                {{#if this.image}}
+                <img src="/{{this.image}}" width="200">
+                {{/if}}
+                <h3>{{this.name}}</h3>
+                <p>Автор: {{this.User.name}}</p>
+                <div class="elements">
+                    <a href='/recipes/check/{{this.id}}'><button class="watch-recipe">Переглянути</button></a>
+                    {{#if ../isAuthenticated}}
+                    <form method="POST" action="/page/post/{{this.id}}">
+                        <button class="favourite-recipe">Save to Favourites</button>
+                    </form>
+                    {{/if}}
+                    {{#if this.canEdit}}
+                    <a href='/recipes/update/{{this.id}}'><button class="update-recipe">Змінити</button></a>
+                    <form method="POST" action="/recipes/delete/{{this.id}}?_method=DELETE">
+                        <button class="delete-recipe">Видалити</button>
+                    </form>
+                </div>
+                {{/if}}
+            </li>
+            {{/each}}
+        </ul>
+        {{else}}
+        <p>Немає рецептів для відображення.</p>
+        {{/if}}
+    </div>
+</body>
+
+</html>

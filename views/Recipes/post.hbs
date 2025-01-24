@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" action="/recipes/post" enctype="multipart/form-data" class="recipe-form">
+    
+    <label for="image">Загрузіть фото</label>
+    <div class="input-photo">
+    <input id="image" type="file" name="image" required>
+    </div>
+
+    <div class="input-name-recipe">
+    <input id="name" type="text" name="name" placeholder="Введіть назву рецепту" required>
+    </div>
+
+    <div class="input-describe">
+        <textarea id="describe" name="describe" rows="5" cols="33" placeholder="Напишіть опис та сам рецепт"></textarea>
+    </div>
+
+    <div class="input-select">
+<select id="category_id" name="category_id" required>
+    <option value="0">Оберіть категорію</option>
+    <option value="1">Сніданок</option>
+    <option value="2">Обід</option>
+    <option value="3">Вечеря</option>
+    <option value="4">Новорічні рецепти</option>
+    <option value="5">Великодні рецепти</option>
+    <option value="6">Різдвяні рецепти</option>
+</select>
+    </div>
+    <button type="submit" class="recipe-button">Додати</button>
+</form>
+</body>
+</html>
